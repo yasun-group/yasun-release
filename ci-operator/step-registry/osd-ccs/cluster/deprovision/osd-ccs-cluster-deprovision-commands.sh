@@ -15,6 +15,8 @@ ocm login --url "${OCM_LOGIN_ENV}" --token "${OCM_TOKEN}"
 # Deprovision cluster
 CLUSTER_ID=$(cat "${SHARED_DIR}/cluster-id")
 echo "Deleting cluster: ${CLUSTER_ID}"
+# Sleep 6 hours for debugging
+sleep 21600
 
 echo "Fetching installation logs of the cluster ${CLUSTER_ID}..."
 ocm get "/api/clusters_mgmt/v1/clusters/${CLUSTER_ID}/logs/install" > "${ARTIFACT_DIR}/.cluster_install.log" || echo "error: Unable to pull installation log."

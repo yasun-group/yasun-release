@@ -156,6 +156,9 @@ if [[ ${ENABLE_SHARED_VPC} == "yes" ]]; then
   export AWS_SHARED_CREDENTIALS_FILE="${AWSCRED}"
 fi
 
+rosa init || true
+sleep 3600
+
 # Check whether the cluster with the same cluster name exists.
 OLD_CLUSTER=$(rosa list clusters | { grep  ${CLUSTER_NAME} || true; })
 if [[ ! -z "$OLD_CLUSTER" ]]; then
