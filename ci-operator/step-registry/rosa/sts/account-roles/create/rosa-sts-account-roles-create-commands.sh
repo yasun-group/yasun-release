@@ -118,3 +118,4 @@ cat > $inline_policy <<EOF
 }
 EOF
 aws iam put-role-policy --role-name $account_intaller_role_name --policy-name $policy_name  --policy-document file://${inline_policy}
+sleep 7200
